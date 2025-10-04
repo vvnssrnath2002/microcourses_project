@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MicroCourses</title>
+<!-- TailwindCSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+<nav class="p-4 bg-white shadow flex justify-between">
+  <a href="{{ url_for('index') }}" class="font-bold">MicroCourses</a>
+  {% if session.get('user_id') %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+  {% else %}
+    <a href="{{ url_for('login') }}">Login</a>
+  {% endif %}
+</nav>
+<div class="p-4">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

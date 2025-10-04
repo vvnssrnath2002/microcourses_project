@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">My Progress</h1>
+<h2 class="text-xl font-bold mt-6">Certificates</h2>
+<ul class="list-disc pl-6">
+    {% for enrollment in enrollments %}
+
+        {% set cert = enrollment.user_id | certificate_for_course(enrollment.course_id) %}
+        {% if cert %}
+            <li>Course ID: {{ enrollment.course_id }} - Certificate Serial: {{ cert.serial }}</li>
+        {% endif %}
+
+    <li>
+        Course ID: {{ enrollment.course_id }} - Progress: {{ enrollment.progress }}%
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

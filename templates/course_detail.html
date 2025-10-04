@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-2">{{ course.title }}</h1>
+<p class="mb-4">{{ course.description }}</p>
+
+<h2 class="text-xl font-semibold mb-2">Lessons</h2>
+<ul class="list-disc pl-6">
+    {% for lesson in lessons %}
+    <li>
+        <a href="{{ url_for('learn', lesson_id=lesson.id) }}" class="text-blue-500">{{ lesson.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% if session.get('role') == 'learner' %}
+<form action="{{ url_for('enroll', course_id=course.id) }}" method="get">
+    <button class="bg-blue-500 text-white p-2 rounded mt-2">Enroll</button>
+</form>
+{% endif %}
+
+{% endblock %}

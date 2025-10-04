@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Apply as Creator</h1>
+<form method="POST" class="max-w-md bg-white p-4 rounded shadow">
+    <label class="block mb-2">Bio / Experience</label>
+    <textarea name="bio" class="w-full p-2 border rounded mb-4" rows="4" required></textarea>
+    <button type="submit" class="bg-green-500 text-white p-2 rounded">Submit Application</button>
+</form>
+{% endblock %}

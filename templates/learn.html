@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-2">{{ lesson.title }}</h1>
+<div class="bg-white p-4 rounded shadow mb-4">
+    <p>{{ lesson.content }}</p>
+</div>
+<h2 class="text-lg font-semibold mb-1">Transcript</h2>
+<div class="bg-gray-100 p-3 rounded">
+    <p>{{ lesson.transcript }}</p>
+</div>
+{% if session.get('role') == 'learner' %}
+<form action="{{ url_for('complete_lesson', lesson_id=lesson.id) }}" method="get">
+    <button class="bg-green-500 text-white p-2 rounded mt-2">Mark as Complete</button>
+</form>
+{% endif %}
+
+{% endblock %}

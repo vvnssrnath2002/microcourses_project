@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Pending Creator Applications</h1>
+<ul class="list-disc pl-6">
+    {% for app in apps %}
+    <li>User ID: {{ app.user_id }} - Bio: {{ app.bio }} - Status: {{ app.status }}
+        <!-- In real app, add Approve/Reject buttons here -->
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
